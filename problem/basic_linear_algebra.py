@@ -62,23 +62,41 @@ def matrix_size_check(*matrix_variables):
 
 # TODO Problem #6 - is_matrix_equal (one line code available)
 def is_matrix_equal(*matrix_variables):
-    return None
-matrix_x = [[2, 2], [2, 2]]
-matrix_y = [[2, 5], [2, 1]]
+    result = all([ all([len(set(row)) == 1 for  row in zip(*matrix)]) for matrix in zip(*matrix_variables)])
+    return result
+# matrix_x = [[2, 2], [2, 2]]
+# matrix_y = [[2, 5], [2, 1]]
+#
+# print (is_matrix_equal(matrix_x, matrix_y, matrix_y, matrix_y)) # Expected value: False
+# print (is_matrix_equal(matrix_x, matrix_x)) # Expected value: True
 
-print (is_matrix_equal(matrix_x, matrix_y, matrix_y, matrix_y)) # Expected value: False
-print (is_matrix_equal(matrix_x, matrix_x)) # Expected value: True
-
+# TODO Problem #7 - matrix_addition (one line code available)
 def matrix_addition(*matrix_variables):
     if matrix_size_check(*matrix_variables) == False:
         raise ArithmeticError
-    return None
+    result = [[sum(element) for element in zip(*matrix)] for matrix in zip(*matrix_variables)]
+    return result
+# 실행결과
+# matrix_x = [[2, 2], [2, 2]]
+# matrix_y = [[2, 5], [2, 1]]
+# matrix_z = [[2, 4], [5, 3]]
+#
+# print (matrix_addition(matrix_x, matrix_y)) # Expected value: [[4, 7], [4, 3]]
+# print (matrix_addition(matrix_x, matrix_y, matrix_z)) # Expected value: [[6, 11], [9, 6]]
 
-
+# TODO Problem #8 - matrix_subtraction (one line code available)
 def matrix_subtraction(*matrix_variables):
     if matrix_size_check(*matrix_variables) == False:
         raise ArithmeticError
     return None
+
+# 실행결과
+matrix_x = [[2, 2], [2, 2]]
+matrix_y = [[2, 5], [2, 1]]
+matrix_z = [[2, 4], [5, 3]]
+
+print (matrix_subtraction(matrix_x, matrix_y)) # Expected value: [[0, -3], [0, 1]]
+print (matrix_subtraction(matrix_x, matrix_y, matrix_z)) # Expected value: [[-2, -7], [-5, -2]]
 
 
 def matrix_transpose(matrix_variable):
