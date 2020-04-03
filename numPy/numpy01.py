@@ -75,11 +75,36 @@ import numpy as np
 
 
 
-test_array = np.array([1, 4, 0, 2, 3, 8, 9, 7], float)
-condition = test_array > 3
-print(condition) # 조건에 따른 true false 리턴함
-result = test_array[condition]
-print(result) # true 값인 인덱스의 실제값을 뽑아낼수 있다...
+# test_array = np.array([1, 4, 0, 2, 3, 8, 9, 7], float)
+# condition = test_array > 3
+# print(condition) # 조건에 따른 true false 리턴함
+# result = test_array[condition]
+# print(result) # true 값인 인덱스의 실제값을 뽑아낼수 있다...
+#
+# condition.astype(np.int)
+# print(condition.astype(np.int))
+#
+#
+# a = np.array([2, 4, 6, 8], float)
+# b = np.array([0, 0, 1, 3, 2, 1], int) # 반드시 integer로 선언해야함
+# print(a[b]) # bracket index, b 배열의 값을 index로 하여 a의 값들을 추출함
+#
+# print(a.take(b))
 
-condition.astype(np.int)
-print(condition.astype(np.int))
+a_int = np.array(
+        [[  1900.,  30000.,   4000.,  48300.],
+       [  1901.,  47200.,   6100.,  48200.],
+       [  1902.,  70200.,   9800.,  41500.],
+       [  1903.,  77400.,  35200.,  38200.],
+       [  1904.,  36300.,  59400.,  40600.],
+       [  1905.,  20600.,  41700.,  39800.],
+       [  1906.,  18100.,  19000.,  38600.],
+       [  1907.,  21400.,  13000.,  42300.],
+       [  1908.,  22000.,   8300.,  44500.],
+       [  1909.,  25400.,   9100.,  42100.]], int)
+print(a_int.astype(int))
+np.savetxt('int_data.csv',a_int,fmt="%2d", delimiter=",",header="문서제목")
+
+np.save("npy_test", arr=a_int)
+npy_array = np.load(file="npy_test.npy")
+print(npy_array)
