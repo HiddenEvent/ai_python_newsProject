@@ -47,12 +47,39 @@ import numpy as np
 # print(test_matrix.sum(axis=1)) # Column을 기준으로 더해라
 # print(test_matrix.sum(axis=0)) # Row를 기준으로 더해라
 
-test_matrix = np.arange(1,13).reshape(3,4)
-print(test_matrix.mean()) # mean = 평균
-print(test_matrix.std()) # std = 표준 편차
+# test_matrix = np.arange(1,13).reshape(3,4)
+# print(test_matrix.mean()) # mean = 평균
+# print(test_matrix.std()) # std = 표준 편차
 
-
+# vstack
+# a = np.array([1, 2, 3])
+# b = np.array([4, 5, 6])
+# print(np.vstack((a,b)))
+# print('##############')
+# # hstack
+# a = np.array( [[1], [2], [3]] )
+# b = np.array( [[4], [5], [6]] )
+# print(np.hstack((a,b)))
+# print('##############')
+# a = np.array([[1, 2, 3]])
+# b = np.array([[4, 5, 6]])
+# print(np.concatenate((a,b), axis=0))
+# print('##############')
+# a = np.array([[1,2],[3,4]])
+# b = np.array([[5,6]])
+# print(np.concatenate((a,b.T), axis=1))
 # test_array = np.array(["1", "4", 5, 8], np.float32)
 # print(np.array(test_array).reshape(-1,2).shape )
 # flatten_test = np.array([[["1", "4", 5, 8],["1", "4", 5, 8]],[["1", "4", 5, 8],["1", "4", 5, 8]]], int)
 # print(flatten_test.flatten())
+
+
+
+test_array = np.array([1, 4, 0, 2, 3, 8, 9, 7], float)
+condition = test_array > 3
+print(condition) # 조건에 따른 true false 리턴함
+result = test_array[condition]
+print(result) # true 값인 인덱스의 실제값을 뽑아낼수 있다...
+
+condition.astype(np.int)
+print(condition.astype(np.int))
