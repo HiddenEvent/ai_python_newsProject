@@ -1,8 +1,10 @@
+# DFS(깊이우선탐색)를 알아야 풀수있음 DFS를 알아보자
+
 # 핵심 순서
 # 1. 연산자 부분을 람다 배열로 만들어 연산 갯수만큼 하나의 리스트를 만드는 부분 생각...
 
 # 1. 연산자가 들어갈 수 있는 모든 경우의 수 먼저 구한다.
-#   - 팩토리얼로 구할 수 있음 ex) 5의 팩토리얼은 120
+#   - 팩토리얼로 구할 수 있음 ex) 5의 팩토리얼은 120 / 2 (중복제거)
 import itertools
 from functools import reduce
 import sys
@@ -10,7 +12,7 @@ import sys
 
 def OperatorCalc(length, input_num, input_oper):
     ops = {"0": (lambda x, y: x + y), "1": (lambda x, y: x - y), "2": (lambda x, y: x * y),
-           "3": (lambda x, y: x // y if x > 0 else x / y)}
+           "3": (lambda x, y: x // y if x > 0 else -(-x // y))}
     oper_permutation = []
     result = []
     list(oper_permutation.extend(
